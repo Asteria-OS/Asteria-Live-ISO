@@ -1,0 +1,8 @@
+Asteria OS Plymouth theme for the live ISO.
+
+The watermark and throbber frames are Asteria artwork. The dialog assets
+bullet.png, capslock.png, entry.png, keyboard.png, keymap-render.png and
+lock.png were copied from the Plymouth spinner theme (Plymouth 26.134.222-5).
+They remain subject to Plymouth's upstream licensing. The keymap-render.png
+asset is tied to the Plymouth version and should be refreshed from the spinner
+theme when building against a different version of the Plymouth package.

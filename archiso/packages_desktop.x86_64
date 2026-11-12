@@ -149,6 +149,7 @@ plasma-nm
 plasma-pa
 plasma-thunderbolt
 plasma-workspace
+plymouth
 polkit
 polkit-kde-agent
 power-profiles-daemon

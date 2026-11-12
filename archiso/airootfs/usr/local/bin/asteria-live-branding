@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -eu
+
+# Restore the live environment's display identity after upstream branding hooks.
+os_release="${1:-/etc/os-release}"
+if [[ -f "$os_release" ]]; then
+    sed -i "$os_release" \
+        -e 's|^NAME=.*$|NAME="Asteria OS"|' \
+        -e 's|^PRETTY_NAME=.*$|PRETTY_NAME="Asteria OS"|' \
+        -e 's|^LOGO=.*$|LOGO=asteriaos|'
+fi

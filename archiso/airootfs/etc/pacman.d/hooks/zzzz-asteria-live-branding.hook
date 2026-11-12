@@ -1,0 +1,13 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = cachyos-hooks
+Target = archlinux-release
+
+[Action]
+Description = Restoring Asteria OS live branding...
+When = PostTransaction
+Depends = bash
+Depends = sed
+Exec = /usr/local/bin/asteria-live-branding

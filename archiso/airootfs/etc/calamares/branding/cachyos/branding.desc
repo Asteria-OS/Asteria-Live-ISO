@@ -1,0 +1,26 @@
+---
+# The upstream settings select the cachyos component; this live-ISO overlay
+# supplies its Asteria presentation without changing installer behavior.
+componentName: cachyos
+welcomeStyleCalamares: false
+welcomeExpandingLogo: false
+windowExpanding: normal
+windowSize: 1100px,520px
+windowPlacement: center
+sidebar: widget
+navigation: widget
+strings:
+    productName: Asteria OS
+    shortProductName: Asteria OS
+    versionedName: Asteria OS
+    shortVersionedName: Asteria OS
+    bootloaderEntryName: Asteria OS
+images:
+    productLogo: logo.png
+    productIcon: logo.png
+    productWelcome: logo.png
+style:
+    SidebarBackground: "#111a35"
+    SidebarText: "#ffffff"
+    SidebarTextCurrent: "#111a35"
+    SidebarBackgroundCurrent: "#a8bfff"

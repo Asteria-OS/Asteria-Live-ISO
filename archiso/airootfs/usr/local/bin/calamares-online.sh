@@ -1,15 +1,10 @@
 #!/bin/bash
+set -e
 
 main() {
-    # Remove current keyring first, to complete initiate it
-    sudo rm -rf /etc/pacman.d/gnupg
-    # We are using this, because archlinux is signing the keyring often with a newly created keyring
-    # This results into a failed installation for the user.
-    # Installing archlinux-keyring fails due not being correctly signed
-    # Mitigate this by installing the latest archlinux-keyring on the ISO, before starting the installation
-    # The issue could also happen, when the installation does rank the mirrors and then a "faulty" mirror gets used
-    sudo pacman -Sy --noconfirm archlinux-keyring cachyos-keyring
-    # Also populate the keys, before starting the Installer, to avoid above issue
+    # Use the keyring packages and installer shipped on the ISO. Do not delete
+    # the existing trust store or perform a partial package upgrade here.
+    pacman -Q archlinux-keyring cachyos-keyring cachyos-calamares-next >/dev/null
     sudo pacman-key --init
     sudo pacman-key --populate archlinux cachyos
     # Also use timedatectl to sync the time with the hardware clock
@@ -31,8 +26,6 @@ main() {
 
     local ISO_VERSION="$(cat /etc/version-tag)"
     echo "USING ISO VERSION: ${ISO_VERSION}"
-
-    sudo pacman -Sy --noconfirm cachyos-calamares-next
 
     # Get Hardware Informations
     inxi -F > "$log"
